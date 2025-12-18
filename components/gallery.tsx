@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { X } from "lucide-react"
+import Image from "next/image"
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
@@ -10,37 +11,37 @@ export default function Gallery() {
     {
       id: 1,
       src: "/gallery/img1.jpg",
-      alt: "Student with keyboard setup",
+      alt: "Piano student practicing on keyboard at AMacademy music school",
       size: "col-span-1 row-span-1",
     },
     {
       id: 2,
       src: "/gallery/img3.jpg",
-      alt: "Professional keyboard performance",
+      alt: "Professional keyboard and guitar setup at AMacademy music academy",
       size: "col-span-2 row-span-1 max-sm:col-span-1",
     },
     {
       id: 3,
       src: "/gallery/img2.jpg",
-      alt: "Music production setup",
+      alt: "Piano teacher performing live at AMacademy - professional music instruction",
       size: "col-span-1 row-span-2 max-sm:col-span-1 max-sm:row-span-1",
     },
     {
       id: 4,
       src: "/gallery/img5.jpg",
-      alt: "Smiling student at keyboard",
+      alt: "Happy piano student learning at AMacademy music classes",
       size: "col-span-1 row-span-1",
     },
     {
       id: 5,
       src: "/gallery/img4.jpg",
-      alt: "Student practice session",
+      alt: "Young student practicing piano lessons at AMacademy",
       size: "col-span-2 row-span-1 max-sm:col-span-1",
     },
     {
       id: 6,
       src: "/gallery/img6.jpg",
-      alt: "Focused keyboard playing",
+      alt: "Focused piano practice session at AMacademy music school",
       size: "col-span-1 row-span-1",
     },
   ]
@@ -57,14 +58,17 @@ export default function Gallery() {
             className={`${image.size} relative overflow-hidden rounded-lg cursor-pointer group bg-gray-200 transition-all duration-300`}
             onClick={() => setSelectedImage(image.id)}
           >
-            <img
+            <Image
               src={image.src || "/placeholder.svg"}
               alt={image.alt}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover group-hover:scale-110 transition-transform duration-300"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-              <p className="text-white text-base md:text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {image.alt}
+              <p className="text-white text-base md:text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 text-center">
+                View Image
               </p>
             </div>
           </div>
@@ -77,9 +81,11 @@ export default function Gallery() {
           onClick={() => setSelectedImage(null)}
         >
           <div className="relative max-w-2xl w-full cursor-default" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={galleryImages.find((img) => img.id === selectedImage)?.src || "/placeholder.svg"}
-              alt={galleryImages.find((img) => img.id === selectedImage)?.alt}
+            <Image
+              src={galleryImages.find((img) => img.id === selectedImage)?.src || ""}
+              alt={galleryImages.find((img) => img.id === selectedImage)?.alt || "Gallery image"}
+              width={800}
+              height={600}
               className="w-full rounded-lg shadow-2xl"
             />
             <button
