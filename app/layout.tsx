@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import Script from "next/script"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import "./globals.css"
 
@@ -150,7 +151,7 @@ export default function RootLayout({
         </Script>
         */}
       </head>
-      <body className={`${playfairDisplay.variable} ${inter.variable} antialiased bg-white`}>{children}</body>
+      <body className={`${playfairDisplay.variable} ${inter.variable} antialiased bg-white`}>{children}<SpeedInsights /></body>
     </html>
   )
 }
