@@ -6,6 +6,7 @@ import "./globals.css"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
+import MusicBackground from "@/components/music-background"
 import { Playfair_Display, Inter, Geist as V0_Font_Geist, Geist_Mono as V0_Font_Geist_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
 
 // Initialize fonts
@@ -152,12 +153,15 @@ export default function RootLayout({
         </Script>
         */}
       </head>
-      <body className={`${playfairDisplay.variable} ${inter.variable} antialiased bg-white flex flex-col min-h-screen`}>
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+      <body className={`${playfairDisplay.variable} ${inter.variable} antialiased bg-white flex flex-col min-h-screen relative`}>
+        <MusicBackground />
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   )
