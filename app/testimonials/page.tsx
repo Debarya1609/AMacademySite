@@ -1,9 +1,8 @@
 'use client'
 
 import Testimonials from '@/components/testimonials'
-import { Metadata } from 'next'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Testimonials - AMacademy | Music Academy',
   description: 'Read testimonials from our students and parents about their experience at AMacademy music academy.',
   openGraph: {
@@ -16,10 +15,10 @@ export const metadata: Metadata = {
 
 export default function TestimonialsPage() {
   return (
-    <main className="min-h-screen bg-white">
-      <div className="pt-8 pb-16">
+    <div className="min-h-screen bg-white">
+      <div className="pt-8 pb-16 max-w-7xl mx-auto px-4">
         <Testimonials />
       </div>
-    </main>
+    </div>
   )
 }
