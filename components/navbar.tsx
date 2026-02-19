@@ -40,7 +40,7 @@ export default function Navbar() {
             <Link href="#about" className="text-gray-700 hover:text-black transition duration-300 font-medium">
               About
             </Link>
-            <Link href="#testimonials" className="text-gray-700 hover:text-black transition duration-300 font-medium">
+            <Link href="/testimonials" className="text-gray-700 hover:text-black transition duration-300 font-medium">
               Testimonials
             </Link>
             <Link href="#gallery" className="text-gray-700 hover:text-black transition duration-300 font-medium">
@@ -90,7 +90,7 @@ export default function Navbar() {
               About
             </Link>
             <Link
-              href="#testimonials"
+              href="/testimonials"
               className="block px-4 py-2 text-gray-700 hover:text-black hover:bg-gray-100 rounded transition duration-300 font-medium"
             >
               Testimonials
